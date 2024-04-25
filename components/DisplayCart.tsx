@@ -46,7 +46,7 @@ export const DisplayCart: FunctionComponent<
           Total:
         </div>
         <div class="total-price">
-          {Math.round(summ * 100) / 100}$
+          {Math.round(summ * 100) / 100}€
         </div>
       </div>
       <button

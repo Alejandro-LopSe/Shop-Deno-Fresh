@@ -35,8 +35,6 @@ export const Cart: FunctionComponent<{ selection: Signal<CartProduct[]> }> = (
         selected: citylist.value.selected,
         data: data.data,
       };
-      console.log(data.data);
-      console.log(countrylist.value, citylist.value);
 
       return;
     };

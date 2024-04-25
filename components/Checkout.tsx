@@ -67,7 +67,7 @@ export const Checkout: FunctionComponent<
             Cash
           </option>
         </select>
-        <div class="total">51.96€</div>
+        <div class="total">{summ}€</div>
         <button type="submit">Submit</button>
       </form>
     </div>
