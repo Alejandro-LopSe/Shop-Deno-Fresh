@@ -56,7 +56,7 @@ export const DisplayCart: FunctionComponent<
           b.value = true;
         }}
       >
-        Submit
+        Cheackout
       </button>
     </div>
   );

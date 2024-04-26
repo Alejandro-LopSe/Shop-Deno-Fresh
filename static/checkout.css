@@ -66,3 +66,7 @@
 .checkout form label {
   margin-bottom: 10px;
 }
+
+.not{
+  background-color: red;
+}

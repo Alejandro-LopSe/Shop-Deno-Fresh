@@ -12,7 +12,11 @@ export const Checkout: FunctionComponent<
 > = (
   { selection, countrylist, citylist },
 ) => {
-  console.log(countrylist.value);
+  console.log(
+    citylist.value.selected
+      ? countrylist.value[citylist.value.selected].country
+      : "Select a Country",
+  );
 
   let summ = 0;
   const sum = selection.value.forEach((element) => {
@@ -23,11 +27,12 @@ export const Checkout: FunctionComponent<
       <h1>Checkout</h1>
       <form>
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" />
+        <input type="text" id="name" name="name" required />
         <label for="address">Address</label>
-        <input type="text" id="address" name="address" />
+        <input type="text" id="address" name="address" required />
         <label for="country">Country</label>
         <select
+          class={!citylist.value.selected ? "not" : ""}
           name="country"
           id="country"
           onChange={(e) => {
@@ -35,9 +40,11 @@ export const Checkout: FunctionComponent<
               selected: e.currentTarget.value,
               data: citylist.value.data,
             };
-            console.log("cambiado");
           }}
         >
+          <option value={"Select a Country"}>
+            Select a Country
+          </option>
           {Object.keys(countrylist.value).map((elemkey) => {
             return (
               <option value={elemkey}>
@@ -46,7 +53,7 @@ export const Checkout: FunctionComponent<
             );
           })}
         </select>
-        <label for="city">city</label>
+        {citylist.value.selected && <label for="city">city</label>}
         {citylist.value.selected && (
           <select name="city" id="city">
             {Object.keys(citylist.value.data).map((elem: string) => {
